@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables ── */
+:root {
+  --cream:       #FFFBF7;
+  --blush-light: #FFF0F5;
+  --blush:       #F472B6;
+  --berry:       #6B1A3A;
+  --berry-light: #A84D7E;
+  --white:       #FFFFFF;
+}
+
+/* ── Base Reset ── */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--cream);
+    color: var(--berry);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+/* ── Reusable Component Classes ── */
+@layer components {
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-berry-500 text-white font-body font-medium px-6 py-3 rounded-full
+           shadow-soft hover:bg-berry-600 hover:shadow-hover
+           transition-all duration-300 ease-in-out
+           active:scale-95 cursor-pointer;
+  }
+
+  .btn-outline {
+    @apply border-2 border-berry-500 text-berry-500 font-body font-medium px-6 py-3 rounded-full
+           hover:bg-berry-500 hover:text-white
+           transition-all duration-300 ease-in-out
+           active:scale-95 cursor-pointer;
+  }
+
+  .btn-blush {
+    @apply bg-blush-400 text-white font-body font-medium px-6 py-3 rounded-full
+           shadow-glow hover:bg-blush-500
+           transition-all duration-300 ease-in-out
+           active:scale-95 cursor-pointer;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl shadow-card
+           hover:shadow-hover hover:-translate-y-1
+           transition-all duration-300 ease-in-out;
+  }
+
+  /* Input fields */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-blush-200
+           bg-white text-berry-500 font-body
+           placeholder-blush-300
+           focus:outline-none focus:ring-2 focus:ring-blush-400 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  /* Section wrapper */
+  .section-wrapper {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
+           bg-blush-50 text-berry-500 border border-blush-200;
+  }
+}
+
+/* ── Scrollbar Styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--blush-light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--berry-light);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--berry);
+}
